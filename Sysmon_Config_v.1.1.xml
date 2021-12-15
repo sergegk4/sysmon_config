@@ -398,6 +398,8 @@
 				<ImageLoaded condition="contains">\windows\installer\</ImageLoaded>
 				<ImageLoaded condition="contains">\ProgramData\Microsoft\Windows Defender\</ImageLoaded>
 				<ImageLoaded condition="contains">\Program Files\WindowsApps\</ImageLoaded>
+				<Image condition="image">sysmon.exe</Image>
+				<Image condition="image">sysmon64.exe</Image>				
 				<!--ImageLoaded condition="end with">Punto Switcher\Punto Switcher\pshook.dll</ImageLoaded-->
 				<!--ImageLoaded condition="end with">Punto Switcher\Punto Switcher\pshook64.dll</ImageLoaded-->
 				<Image condition="begin with">C:\Program Files (x86)\Google\Chrome\Application\chrome.exe</Image>
@@ -609,6 +611,7 @@
 			<!--EVENT 12: "Registry object added or deleted"-->
 			<!--EVENT 13: "Registry value set-->
 			<!--EVENT 14: "Registry objected renamed"-->
+			<!--
 			<RuleGroup name="RegistryEvent" groupRelation="or">
 			<RegistryEvent onmatch="exclude">
 				<Image condition="begin with">C:\Program Files (x86)\Mozilla Firefox\firefox.exe</Image>
@@ -667,17 +670,19 @@
 				<Image condition="begin with">C:\Program Files (x86)\Common Files\Adobe\ARM\1.0\AdobeARM.exe</Image>
 				<Image condition="begin with">C:\Program Files\Kaspersky Lab\Kaspersky Endpoint Security for Windows\avpsus.exe</Image>
 				<Image condition="begin with">C:\Program Files\Kaspersky Lab\NetworkAgent\klnagent.exe</Image>
-				<!--<Image condition="begin with">C:\Program Files\Common Files\Adobe\ARM\1.0\AdobeARM.exe</Image>
+				<Image condition="begin with">C:\Program Files\Common Files\Adobe\ARM\1.0\AdobeARM.exe</Image>
 				<Image condition="end with">\AppData\Local\Microsoft\OneDrive\OneDrive.exe</Image>
 				<Image condition="begin with">C:\Program Files\Intel\SUR\QUEENCREEK\</Image>
 				<Image condition="begin with">C:\Program Files (x86)\Intel\SUR\QUEENCREEK\</Image>
 				<TargetObject condition="contains">Software\Microsoft\Office\</TargetObject>-->
-			</RegistryEvent>
-			</RuleGroup>
+			<!--</RegistryEvent>
+			</RuleGroup> -->
 	<!--SYSMON EVENT ID 15 : ALTERNATE DATA STREAM CREATED [FileCreateStreamHash]-->
 	<!--DATA: UtcTime, ProcessGuid, ProcessId, Image, TargetFilename, CreationUtcTime, Hash-->
 			<FileCreateStreamHash onmatch="exclude">
 				<Image condition="end with">\Program Files (x86)\Kaspersky Lab\Kaspersky Endpoint Security for Windows\avp.exe</Image>
+				<Image condition="end with">Program Files (x86)\Total Network Inventory\tni.exe</Image>
+				
 			</FileCreateStreamHash>
 	<!--SYSMON EVENT ID 16 : SYSMON CONFIGURATION CHANGE-->
 	<!--DATA: UtcTime, Configuration, ConfigurationFileHash-->
@@ -710,13 +715,10 @@
 				<PipeName condition="is">\WRSVCPipe</PipeName>
 				<PipeName condition="is">\WRSynUM2</PipeName>
 				<Image condition="is">C:\Program Files (x86)\Webroot\WRSA.exe</Image>
-				<Image condition="is">C:\Program Files\Webroot\WRSA.exe</Image>
-				<Image condition="is">C:\Program Files (x86)\Google\Chrome\Application\chrome.exe</Image>
-				<Image condition="is">C:\Program Files\Google\Chrome\Application\chrome.exe</Image>
-				<Image condition="is">C:\Program Files (x86)\Google\Update\GoogleUpdate.exe</Image>
-				<Image condition="is">C:\Program Files\Google\Update\GoogleUpdate.exe</Image>
-				<Image condition="is">C:\Program Files\Mozilla Firefox\firefox.exe</Image>
-				<Image condition="is">C:\Program Files (x86)\Mozilla Firefox\firefox.exe</Image>
+				<Image condition="end with">\Webroot\WRSA.exe</Image>
+				<Image condition="end with">Google\Chrome\Application\chrome.exe</Image>
+				<Image condition="end with">\Google\Update\GoogleUpdate.exe</Image>
+				<Image condition="end with">Mozilla Firefox\firefox.exe</Image>
 				<Image condition="end with">slack.exe</Image>
 				<Image condition="end with">wmiprvse.exe</Image>
 				<Image condition="end with">svchost.exe</Image>
@@ -728,6 +730,8 @@
 				<PipeName condition="is">\eventlog</PipeName>
 				<PipeName condition="is">\winreg</PipeName>
 				<Image condition="image">EMET_Service.exe</Image>
+				<Image condition="end with">\Mozilla Firefox\firefox.exe</Image>
+				<Image condition="image">acrocef.exe</Image> <!-- adobe acrobat  -->
 			</PipeEvent >
 		</RuleGroup>
 	<!--SYSMON EVENT ID 19 & 20 & 21 : WMI EVENT MONITORING [WmiEvent]-->
