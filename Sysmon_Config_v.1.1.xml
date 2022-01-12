@@ -167,6 +167,10 @@
 				<TargetFilename condition="end with">.ws</TargetFilename>
 				<TargetFilename condition="end with">.wsf</TargetFilename>
 				<TargetFilename condition="end with">.xsl</TargetFilename>
+				<TargetFilename condition="end with">.jpg</TargetFilename>
+				<TargetFilename condition="end with">.avi</TargetFilename>
+				<TargetFilename condition="end with">.mp4</TargetFilename>
+				
 			</FileCreateTime>
 		
 			<FileCreateTime onmatch="exclude">
@@ -595,6 +599,9 @@
 				<TargetFilename condition="end with">.xll</TargetFilename>
 				<TargetFilename condition="end with">.xsl</TargetFilename>
 				<TargetFilename condition="end with">.xz</TargetFilename>
+				<TargetFilename condition="end with">.jpg</TargetFilename>
+				<TargetFilename condition="end with">.mp4</TargetFilename>
+				<TargetFilename condition="end with">.avi</TargetFilename>
 			</FileCreate>
 			<FileCreate onmatch="exclude">
 				<Rule name = "firefox profile" groupRelation = "and">
